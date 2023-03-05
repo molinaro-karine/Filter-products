@@ -1,6 +1,7 @@
 // Récupération des produits depuis le fichier JSON
 
-const products = document.querySelector(".products");
+/* Fetching the JSON file and then iterating through the products and adding them to the DOM. */
+/*/*const products = document.querySelector(".products");
 fetch("./database/store.json")
   .then((res) => res.json())
   .then((json) => {
@@ -19,7 +20,7 @@ fetch("./database/store.json")
  * @param article - the parent element
  * @param value - {
  */
-function addElement(article, value) {
+/*function addElement(article, value) {
   let div = document.createElement("div");
   div.className = "item justify-self-center";
 
@@ -36,3 +37,4 @@ function addElement(article, value) {
       `;
   article.appendChild(div);
 }
+*/
