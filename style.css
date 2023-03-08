@@ -9,7 +9,7 @@
   background-color: rgb(224, 224, 224);
 }
 
-.filter-box {
+.btn-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -17,7 +17,7 @@
   gap: 5px;
 }
 
-.filter-box button {
+.btn-group .btn {
   width: 100px;
   height: 30px;
   border: none;
@@ -28,9 +28,27 @@
   cursor: pointer;
   transition: 0.3s;
   border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.filter-box button:hover,
-.filter-box .btn-clicked {
+ul.filterMenu {
+  display: flex;
+  gap: 20px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-group button:hover,
+.btn-group .btn-clicked {
+  background-color: #353b48;
+}
+.btn-group button:hover,
+.btn-group .btn-clicked {
   background-color: #353b48;
 }

@@ -11,6 +11,9 @@ function generateProducts(products) {
 
     /* Creating an article element. */
     const productElement = document.createElement("article");
+    productElement.classList = "article";
+    //productElement.attributes["data-item"];
+    productElement.dataset.item = article.category;
     productElement.style.display = "flex";
     productElement.style.flexDirection = "column";
     productElement.style.alignItems = "center";
@@ -20,6 +23,7 @@ function generateProducts(products) {
     imageElement.src = article.image;
     imageElement.style.height = "32vh";
     imageElement.style.maxWidth = "80%";
+    imageElement.style.margin = "0 auto";
 
     const titleElement = document.createElement("h2");
     titleElement.innerText = article.title;
@@ -28,6 +32,8 @@ function generateProducts(products) {
     const priceElement = document.createElement("p");
     priceElement.innerText = `Prix: ${article.price} € 
     `;
+    const categorieElement = document.createElement("p");
+    categorieElement.innerText = article.category;
 
     /* Adding the article element to the section element. */
     sectionFiches.appendChild(productElement);
@@ -36,6 +42,7 @@ function generateProducts(products) {
     productElement.appendChild(imageElement);
     productElement.appendChild(titleElement);
     productElement.appendChild(priceElement);
+    productElement.appendChild(categorieElement);
   }
 }
 
@@ -77,3 +84,41 @@ filterButton.addEventListener("click", function () {
   document.querySelector(".products").innerHTML = "";
   generateProducts(productsFilter);
 });
+
+//filter
+const buttons = document.querySelectorAll(".btn");
+const boxes = document.querySelectorAll(".article");
+
+buttons.forEach((button) => {
+  button.classList.remove("btn-clicked");
+});
+buttons[0].classList.add("btn-clicked");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    setActiveBtn(e);
+    const btnfilter = e.target.dataset.filter;
+
+    boxes.forEach((box) => {
+      console.log(box);
+      if (btnfilter == "all") {
+        box.style.display = "block";
+      } else {
+        const boxfilter = box.dataset.item;
+        if (btnfilter == boxfilter) {
+          box.style.display = "block";
+        } else {
+          box.style.display = "none";
+        }
+      }
+    });
+  });
+});
+
+function setActiveBtn(e) {
+  buttons.forEach((button) => {
+    button.classList.remove("btn-clicked");
+  });
+  e.target.classList.add("btn-clicked");
+}

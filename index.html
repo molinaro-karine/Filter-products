@@ -20,58 +20,45 @@
     <form class="text-center py-4">
         <input type="text" class="placeholder-gray-800 focus:outline-none bg-gray-200 text-gray-800 w-2/4 py-2 px-3 font-poppins rounded-md" id="filterInput" placeholder="Filter">        
     </form>
-    <div class="filter-box">
-        <button class="button-value" data-filter="all">All</button>
-        <button class="button-value" data-filter="men">Hommes</button>
-        <button class="button-value" data-filter="jewelery">Bijoux</button>
-        <button class="button-value" data-filter="electronics">Électronique</button>
-        <button class="button-value" data-filter="women's clothing">Femmes</button>
-  </div>
-  <div class=" grid justify-items-end mx-8">
-    <button class="btn-sort text-white bg-gray-700 hover:bg-gray-500 focus:ring-4 focus:ring-gray-500 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button" data-dropdown-toggle="dropdown">Trier<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+    <div class="btn-group">
+        <ul class="filterMenu flex flex-wrap justify-center">
+            <li class="btn btn-clicked" data-filter="all">All</li>
+            <li class="btn" data-filter="men">Hommes</li>
+            <li class="btn" data-filter="jewelery">Bijoux</li>
+            <li class="btn" data-filter="electronics">Électronique</li>
+            <li class="btn" data-filter="women">Femmes</li>
+        </ul>
+    </div>
 
-    <!-- Dropdown menu -->
+<!--Dropdown-->
+  <div class=" flex md:justify-end mx-8 my-8 flex flex-wrap grid sm:justify-items-center">
+    <button class="btn-sort text-white bg-gray-700 hover:bg-gray-500 focus:ring-4 focus:ring-gray-500 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button" data-dropdown-toggle="dropdown">Filter par trie<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+
+<!-- Dropdown menu -->
     <div class="hidden bg-white text-base z-50 list-none divide-y divide-gray-100 rounded shadow my-4" id="dropdown">
         <div class="px-4 py-3">
- 
-        <span class="newProducts block text-sm font-medium text-gray-900 truncate">Nouveautés</span>
+            <span class="newProducts block text-sm font-medium text-gray-900 truncate">Nouveautés</span>
         </div>
         <ul class="py-1" aria-labelledby="dropdown">
-        <li>
-            <a href="#" class="sort-asc text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Prix croissant</a>
-        </li>
-        <li>
-            <a href="#" class="sort-desc text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Prix décroissant</a>
-        </li>
+            <li>
+                <a href="#" class="sort-asc text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Prix croissant</a>
+            </li>
+            <li>
+                <a href="#" class="sort-desc text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Prix décroissant</a>
+            </li>
         </ul>
     </div>
   </div>
 
-
-    <!-- product grid -->
+<!-- product grid -->
     <div class="products mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-12 gap-20">
-        <!-- <div class="item justify-self-center">
-            <img src="./assets/img3.png" class="bg-cover img" alt="img1">
-            <div class="text-center py-3 font-poppins">
-                <h1 class="text-lg title">Product Title</h1>
-                <a href="#" class="block"><span class="text-sm text-red-400">Category</span></a>
-                <span class="block py-3">$<span class="text-md">12.99</span></span>
-                <button class="border-2 px-8 py-1 bg-yellow-400 border rounded-md">Buy Now</button>
-            </div>
-        </div> -->
+    
     </div>
 
   <!--<script src="./Beginner.js"></script>-->
-    <script type="module" src="btnsFilter.js"></script>
+    <script type="module"  src="btnsFilter.js"></script>
     <script type="module" src="./productsFilter.js"></script>
    
   
 </body>
 </html>
-<!--<div class="btn-group">
-    <button class="btn btn-clicked" data-filter="all">All</button>
-    <button class="btn" data-filter="men's clothing">men's clothing</button>
-    <button class="btn" data-filter="jewelery">jewelery</button>
-    <button class="btn" data-filter="electronics">electronics</button>
-    <button class="btn" data-filter="women's clothing">women's clothing</button>
-  </div>-->
