@@ -26,6 +26,7 @@ function generateProducts(products) {
     imageElement.style.margin = "0 auto";
 
     const titleElement = document.createElement("h2");
+    titleElement.classList = "title";
     titleElement.innerText = article.title;
     titleElement.style.marginTop = "14px";
     titleElement.style.textAlign = "center";
@@ -86,9 +87,33 @@ filterButton.addEventListener("click", function () {
 });
 
 //filter
+const searchBox = document.querySelector("#search");
 const buttons = document.querySelectorAll(".btn");
 const boxes = document.querySelectorAll(".article");
+const grid = document.querySelector(".products");
 
+/**
+ * If the search input value is found in the title of the product, display the product, otherwise, hide
+ * it.
+ */
+search.addEventListener("keyup", filterProducts);
+
+function filterProducts() {
+  const filterValue = search.value.toUpperCase();
+  const item = grid.querySelectorAll(".article");
+
+  for (let i = 0; i < item.length; i++) {
+    let h2 = item[i].querySelector(".title");
+
+    if (h2.innerHTML.toUpperCase().indexOf(filterValue) > 1) {
+      item[i].style.display = "initial";
+    } else {
+      item[i].style.display = "none";
+    }
+  }
+}
+
+/* A function that is called when the user clicks on a button. */
 buttons.forEach((button) => {
   button.classList.remove("btn-clicked");
 });
@@ -101,7 +126,6 @@ buttons.forEach((button) => {
     const btnfilter = e.target.dataset.filter;
 
     boxes.forEach((box) => {
-      console.log(box);
       if (btnfilter == "all") {
         box.style.display = "block";
       } else {
@@ -116,6 +140,11 @@ buttons.forEach((button) => {
   });
 });
 
+/**
+ * When a button is clicked, remove the class 'btn-clicked' from all buttons, then add the class
+ * 'btn-clicked' to the button that was clicked.
+ * @param e - the event object
+ */
 function setActiveBtn(e) {
   buttons.forEach((button) => {
     button.classList.remove("btn-clicked");
